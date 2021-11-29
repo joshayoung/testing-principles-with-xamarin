@@ -28,22 +28,22 @@ namespace XamarinExamples.Tests
         
         // Do not test this:
         [Fact]
-        public void Seniority_Get_ReturnsValue()
+        public void GameDuration_Get_ReturnsValue()
         {
             var player = new Player(11);
             
-            player.Seniority.Should().Be(11);
+            player.GameDuration.Should().Be(0);
         }
         
         // Do not test this:
         [Fact]
-        public void Seniority_Set_SetsCorrectValue()
+        public void GameDuration_Set_SetsCorrectValue()
         {
             var player = new Player();
             
-            player.Seniority = 10;
+            player.GameDuration = 10;
 
-            player.Seniority.Should().Be(10);
+            player.GameDuration.Should().Be(10);
         }
         
         // Test custom get logic:

@@ -25,7 +25,7 @@
   }
 ```
 
-#### Scenario: Method Called
+#### Scenario: Dependency's Method Called
 * GIVEN: I have a method that calls a method on a separate object. 
 * WHEN: I write my test for this method.
 * THEN: I assert that the method was called on the object.
@@ -47,7 +47,7 @@
   }
 ```
 
-#### Scenario: Object's Method Returns Value and Method Under Test Returns Result
+#### Scenario: Dependency's Method Returns a Value and Method Under Test Returns Result
 * GIVEN: That I have a method that calls another method which returns a value.
 * AND: the called method has no side-effects.
 * AND: the called method returns a value.
@@ -74,7 +74,7 @@
 ```
 
 #### Scenario: Called Method Has Side Effect(s)
-* GIVEN: That I have a method that introduces side-effects
+* GIVEN: That I have a method that introduces side-effects.
 * WHEN: I write my test for this method.
 * THEN: I only test the nearest side-effect(s).
 
@@ -138,7 +138,7 @@
 
 #### Scenario: Custom Set Properties
 * GIVEN: I have a property that has custom logic in my setter.
-* WHEN: I write my test for my property.
+* WHEN: I write my tests for this property.
 * THEN: I should write a test for this custom logic.
 
 ```csharp
@@ -249,7 +249,7 @@
 
 #### Scenario: Automatic Get Properties
 * GIVEN: I have a property that uses C#'s automattic getter.
-* WHEN: I write my test for my property.
+* WHEN: I write my test for this property.
 * THEN: I should not write a test for this getter.
 
 (This constitutes testing the "framework" and serves little purpose.)
@@ -257,17 +257,17 @@
 ```csharp
   public class Player
   {
-      public int Seniority { get; set; }
+      public int GameDuration { get; set; }
 
       // ...
   }
 
   [Fact]
-  public void Seniority_Get_ReturnsValue()
+  public void GameDuration_Get_ReturnsValue()
   {
-      var player = new Player(11);
-      
-      player.Seniority.Should().Be(11);
+    var player = new Player(11);
+
+    player.GameDuration.Should().Be(0);
   }
 ```
 
@@ -281,24 +281,24 @@
 ```csharp
   public class Player
   {
-      public int Seniority { get; set; }
+      public int GameDuration { get; set; }
 
       // ...
   }
 
   [Fact]
-  public void Seniority_Set_SetsCorrectValue()
+  public void GameDuration_Set_SetsCorrectValue()
   {
       var player = new Player();
       
-      player.Seniority = 10;
+      player.GameDuration = 10;
 
-      player.Seniority.Should().Be(10);
+      player.GameDuration.Should().Be(10);
   }
 ```
 
 #### Scenario: Called Method Is Private, With No Public Side-Effects
-* GIVEN: That I have a method that calls a private method.
+* GIVEN: That I have a private method.
 * AND: The method has no public side-effects.
 * THEN: I do not test it.
 
@@ -314,7 +314,8 @@
 ```
 
 #### Scenario: Property Changes Triggered via Fody.
-* GIVEN: I have Fody setup and configured.
+* GIVEN: I have the Fody plugin setup and configured.
+* AND: I have a property with an automatic get/set `{ get; set; }`
 * THEN: I should not write a test for the property change event.
 
 (This constitutes testing the "plugin" and serves little purpose.)

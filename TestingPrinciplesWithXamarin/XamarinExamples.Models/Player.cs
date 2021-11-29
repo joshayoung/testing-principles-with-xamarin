@@ -6,6 +6,8 @@ namespace XamarinExamples.Models
     {
         public int Seniority { get; set; }
         
+        public int GameDuration { get; set; }
+        
         public string First { get; set; }
 
         private string last;
