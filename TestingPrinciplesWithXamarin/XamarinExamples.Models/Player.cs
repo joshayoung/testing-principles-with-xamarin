@@ -4,7 +4,39 @@ namespace XamarinExamples.Models
 {
     public class Player
     {
-        private int Seniority { get; set; }
+        public int Seniority { get; set; }
+        
+        public string First { get; set; }
+
+        private string last;
+        public string Last
+        {
+            get => last;
+            set
+            {
+                this.last = value.ToUpperInvariant();
+            }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                if (this.First != "First")
+                {
+                    return $"{this.First} {this.Last}";
+                }
+
+                return "Full Name Not Set";
+            }
+        }
+        
+        public Player(int seniority = 1, string first = "First", string last = "Last")
+        {
+            this.Seniority = seniority;
+            this.First = first;
+            this.Last = last;
+        }
         
         public void IncreasePlayerLives()
         {
