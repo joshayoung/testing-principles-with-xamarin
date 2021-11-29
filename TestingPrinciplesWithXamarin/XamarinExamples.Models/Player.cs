@@ -6,6 +6,8 @@ namespace XamarinExamples.Models
     {
         public int Seniority { get; set; }
         
+        public int Strength { get; set; }
+        
         public int GameDuration { get; set; }
         
         public string First { get; set; }
@@ -49,6 +51,19 @@ namespace XamarinExamples.Models
         public int StrengthLevel()
         {
             return this.DeriveStrengthLevel();
+        }
+
+        // Yes, this method is a code-smell, just here as an example
+        public void GetStrengthLevelAndAssign()
+        {
+            // ... more logic
+            this.AssignStrengthLevel();
+            // ... more logic
+        }
+
+        private void AssignStrengthLevel()
+        {
+            this.Strength = this.StrengthLevel();
         }
 
         // Simple method, for the sake of example

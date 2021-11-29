@@ -73,5 +73,15 @@ namespace XamarinExamples.Tests
 
             player.Last.Should().Be("JONES");
         }
+
+        [Fact]
+        public void GetStrengthLevelAndAssign_Called_SetsStrength()
+        {
+            var player = new Player();
+
+            player.GetStrengthLevelAndAssign();
+
+            player.Strength.Should().Be(11);
+        }
     }
 }

@@ -26,9 +26,9 @@
 ```
 
 #### Scenario: Dependency's Method Called
-* GIVEN: I have a method that calls a method on a separate object. 
+* GIVEN: I have a method that calls another method on a separate object. 
 * WHEN: I write my test for this method.
-* THEN: I assert that the method was called on the object.
+* THEN: I assert that the method was called on that object.
 ```csharp
   public void PowerBoost()
   {
@@ -47,10 +47,10 @@
   }
 ```
 
-#### Scenario: Dependency's Method Returns a Value and Method Under Test Returns Result
-* GIVEN: That I have a method that calls another method which returns a value.
-* AND: the called method has no side-effects.
-* AND: the called method returns a value.
+#### Scenario: Dependency's Method Returns a Value While Method Under Test Returns a Derived Value 
+* GIVEN: My subject under test calls another method which returns a value.
+* AND: this method has no side-effects.
+* AND: the method under test returns a value.
 * WHEN: I write my test for this method.
 * THEN: I do not assert that this method was called.
 * AND: I only assert only on return value of the method under test.
@@ -58,6 +58,7 @@
 ```csharp
   public int GetPlayerStrength()
   {
+      // Do not assert that `StrengthLevel()` was called on `player`
       return 100 * this.player.StrengthLevel();
   }
 
@@ -164,10 +165,8 @@
 
 #### Scenario: Constructor Tests for Properties
 * GIVEN: I have a constructor that accepts params which then sets properties on my class.
-* WHEN: I write my test for my class.
+* WHEN: I write my test for this constructor.
 * THEN: I should test that the class has set the correct properties on my object.
-
-(This prevents degradation from the original design intent of the class.)
 
 ```csharp
   public class Player
@@ -195,8 +194,6 @@
 * GIVEN: I have a constructor that accepts params with default values.
 * WHEN: I write my test for my constructor.
 * THEN: I should test that the default values are set correctly.
-
-(This prevents degradation from the original design intent of the class.)
 
 ```csharp
     public class Player
@@ -245,14 +242,47 @@
   }
 ```
 
+#### Scenario: Private Method That Introduces a Public Side-Effect
+* GIVEN: A public method that calls a private method.
+* WHEN: I write my test for my property/method.
+* THEN: I assert that the private method introduced the public side-effect.
+```csharp
+// Huge code-smell, but this is just for example
+public class Player
+{
+  public int Strength { get; set; }
+
+  public void GetStrengthLevelAndAssign()
+  {
+      this.AssignStrengthLevel();
+
+      // ... more logic
+  }
+
+  private void AssignStrengthLevel()
+  {
+      this.Strength = this.StrengthLevel();
+      // ... more logic
+  }
+}
+
+[Fact]
+public void GetStrengthLevelAndAssign_Called_SetsStrength()
+{
+    var player = new Player();
+
+    player.GetStrengthLevelAndAssign();
+
+    player.Strength.Should().Be(11);
+}
+```
+
 ### What We Should Not Test
 
 #### Scenario: Automatic Get Properties
 * GIVEN: I have a property that uses C#'s automattic getter.
 * WHEN: I write my test for this property.
 * THEN: I should not write a test for this getter.
-
-(This constitutes testing the "framework" and serves little purpose.)
 
 ```csharp
   public class Player
@@ -273,10 +303,8 @@
 
 #### Scenario: Automatic Set Properties
 * GIVEN: I have a property that uses C#'s automattic setter.
-* WHEN: I write my test for my view model property.
+* WHEN: I write my test for my property.
 * THEN: I should not write a test for this setter.
-
-(This constitutes testing the "framework" and serves little purpose.)
 
 ```csharp
   public class Player
@@ -297,9 +325,8 @@
   }
 ```
 
-#### Scenario: Called Method Is Private, With No Public Side-Effects
+#### Scenario: Called Method Is Private
 * GIVEN: That I have a private method.
-* AND: The method has no public side-effects.
 * THEN: I do not test it.
 
 ```csharp
@@ -317,8 +344,6 @@
 * GIVEN: I have the Fody plugin setup and configured.
 * AND: I have a property with an automatic get/set `{ get; set; }`
 * THEN: I should not write a test for the property change event.
-
-(This constitutes testing the "plugin" and serves little purpose.)
 
 ```csharp
     public class Die : INotifyPropertyChanged
