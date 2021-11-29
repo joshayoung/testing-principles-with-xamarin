@@ -12,11 +12,6 @@ namespace XamarinExamples.Models
             this.player = player;
         }
 
-        public void MakeAMove(int location)
-        {
-            this.FirstPosition = location;
-        }
-
         public void MakeMultipleMoves(int firstLocation, int finalLocation)
         {
             this.FirstPosition = firstLocation;

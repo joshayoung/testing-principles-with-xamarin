@@ -13,6 +13,7 @@ namespace XamarinExamples.Tests
 
             player2.Seniority.Should().Be(1);
             player2.First.Should().Be("First");
+            player2.Last.Should().Be("LAST");
         }
         
         [Fact]
@@ -36,7 +37,7 @@ namespace XamarinExamples.Tests
         
         // Do not test this:
         [Fact]
-        public void Seniority_Set_ReturnsValue()
+        public void Seniority_Set_SetsCorrectValue()
         {
             var player = new Player();
             

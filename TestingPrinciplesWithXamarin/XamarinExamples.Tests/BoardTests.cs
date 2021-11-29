@@ -41,18 +41,6 @@ namespace XamarinExamples.Tests
         }
         
         [Fact]
-        public void MakeAMove_Called_SetPropertyValue()
-        {
-            var player = new Player();
-            var board = new Board(player);
-            var position = 10;
-            
-            board.MakeAMove(position);
-
-            board.FirstPosition.Should().Be(position);
-        }
-        
-        [Fact]
         public void MakeMultipleMoves_Called_SetPropertyValues()
         {
             var player = new Player();
