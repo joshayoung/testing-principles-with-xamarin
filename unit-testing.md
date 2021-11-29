@@ -26,7 +26,7 @@
 ```
 
 #### Scenario: Method Called
-* GIVEN: I have a method that calls a method on a separate object only.
+* GIVEN: I have a method that calls a method on a separate object. 
 * WHEN: I write my test for this method.
 * THEN: I assert that the method was called on the object.
 ```csharp
@@ -47,19 +47,20 @@
   }
 ```
 
-#### Scenario: Method Returns Value Not Asserted On
-* GIVEN: That I have a method that calls another method that returns a value.
+#### Scenario: Object's Method Returns Value and Method Under Test Returns Result
+* GIVEN: That I have a method that calls another method which returns a value.
 * AND: the called method has no side-effects.
 * AND: the called method returns a value.
 * WHEN: I write my test for this method.
 * THEN: I do not assert that this method was called.
-* AND: I only assert only on return value.
+* AND: I only assert only on return value of the method under test.
 
 ```csharp
   public int GetPlayerStrength()
   {
       return 100 * this.player.StrengthLevel();
   }
+
   [Fact]
   public void GetPlayerStrength_Called_ReturnsTheCorrectValue()
   {
@@ -73,7 +74,7 @@
 ```
 
 #### Scenario: Called Method Has Side Effect(s)
-* GIVEN: That I have a method that introduces side-effectss
+* GIVEN: That I have a method that introduces side-effects
 * WHEN: I write my test for this method.
 * THEN: I only test the nearest side-effect(s).
 
@@ -100,9 +101,9 @@
 ```
 
 #### Scenario: Custom Get Properties
-* GIVEN: I have a property that has custom logic in my getter
+* GIVEN: I have a property that has custom logic in my getter.
 * WHEN: I write my test this property.
-* THEN: I should write a test for this custom logic.
+* THEN: I should write test(s) for this custom logic.
 
 ```csharp
   public string FullName
@@ -136,8 +137,8 @@
 ```
 
 #### Scenario: Custom Set Properties
-* GIVEN: I have a property that has custom logic in my setter
-* WHEN: I write my test for my property
+* GIVEN: I have a property that has custom logic in my setter.
+* WHEN: I write my test for my property.
 * THEN: I should write a test for this custom logic.
 
 ```csharp
@@ -161,12 +162,12 @@
   }
 ```
 
-#### Scenario: Constructor Tests for properties
+#### Scenario: Constructor Tests for Properties
 * GIVEN: I have a constructor that accepts params which then sets properties on my class.
 * WHEN: I write my test for my class.
 * THEN: I should test that the class has set the correct properties on my object.
 
-(this prevents degradation from the original design intent of the class)
+(This prevents degradation from the original design intent of the class.)
 
 ```csharp
   public class Player
@@ -190,12 +191,12 @@
   }
 ```
 
-#### Scenario: Constructor Tests for params with default values
-* GIVEN: I have a constructor that accepts params with default values
-* WHEN: I write my test for my class.
-* THEN: I should test that the default values to be set correctly.
+#### Scenario: Constructor Tests for Params with Default Values
+* GIVEN: I have a constructor that accepts params with default values.
+* WHEN: I write my test for my constructor.
+* THEN: I should test that the default values are set correctly.
 
-(this prevents degradation from the original design intent of the class)
+(This prevents degradation from the original design intent of the class.)
 
 ```csharp
     public class Player
@@ -219,7 +220,7 @@
     }
 ```
 
-#### Scenario: Property Changes Triggered manually.
+#### Scenario: Property Changes Triggered Manually.
 * GIVEN: I have triggered a manual property change event.
 * WHEN: I write my test for my property/method.
 * THEN: I should write a test for the property change event.
@@ -246,12 +247,12 @@
 
 ### What We Should Not Test
 
-#### Scenario: Automatic Get Propertie(s)
-* GIVEN: I have a property that uses C#'s automattic setter.
-* WHEN: I write my test for my view model property.
-* THEN: I should not write a test for this setter.
+#### Scenario: Automatic Get Properties
+* GIVEN: I have a property that uses C#'s automattic getter.
+* WHEN: I write my test for my property.
+* THEN: I should not write a test for this getter.
 
-(this constitutes testing the "framework" and serves little purpose)
+(This constitutes testing the "framework" and serves little purpose.)
 
 ```csharp
   public class Player
@@ -270,12 +271,12 @@
   }
 ```
 
-#### Scenario: Automatic Set Propertie(s)
-* GIVEN: I have a property that uses C#'s automattic getter.
+#### Scenario: Automatic Set Properties
+* GIVEN: I have a property that uses C#'s automattic setter.
 * WHEN: I write my test for my view model property.
-* THEN: I should not write a test for this getter.
+* THEN: I should not write a test for this setter.
 
-(this constitutes testing the "framework" and serves little purpose.)
+(This constitutes testing the "framework" and serves little purpose.)
 
 ```csharp
   public class Player
@@ -298,6 +299,7 @@
 
 #### Scenario: Called Method Is Private, With No Public Side-Effects
 * GIVEN: That I have a method that calls a private method.
+* AND: The method has no public side-effects.
 * THEN: I do not test it.
 
 ```csharp
@@ -315,7 +317,7 @@
 * GIVEN: I have Fody setup and configured.
 * THEN: I should not write a test for the property change event.
 
-(this constitutes testing the "plugin" and serves little purpose)
+(This constitutes testing the "plugin" and serves little purpose.)
 
 ```csharp
     public class Die : INotifyPropertyChanged
