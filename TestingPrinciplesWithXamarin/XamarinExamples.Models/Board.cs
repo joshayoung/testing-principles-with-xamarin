@@ -14,7 +14,7 @@ namespace XamarinExamples.Models
 
         public void MakeAMove(int location)
         {
-            this.FinalPostion = location;
+            this.FirstPostion = location;
         }
 
         public void MakeMultipleMoves(int firstLocation, int finalLocation)

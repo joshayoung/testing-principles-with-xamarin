@@ -46,7 +46,7 @@ namespace XamarinExamples.Models
         // This would be a much more complicated method, but simple for the sake of example
         public int StrengthLevel()
         {
-            this.DeriveStrenthLevel();
+            return this.DeriveStrenthLevel();
         }
 
         // This would be a much more complicated method, but simple for the sake of example

@@ -7,17 +7,11 @@ namespace XamarinExamples.Tests
 {
     public class BoardTests
     {
-        private readonly Player player;
-
-        public BoardTests()
-        {
-            this.player = Substitute.For<Player>();
-        }
-        
         [Fact]
         public void GetNumberOfMoves_Called_ReturnsCorrectValue()
         {
-            var board = new Board(this.player);
+            var player = new Player();
+            var board = new Board(player);
             
             var result = board.GetNumberOfMoves(2, 20);
 
@@ -27,7 +21,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void PowerBoost_Called_CallsCorrectMethod()
         {
-            var board = new Board(this.player);
+            var player = Substitute.For<Player>(1, "first", "last");
+            var board = new Board(player);
 
             board.PowerBoost();
 
@@ -37,7 +32,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void GetPlayerStrength_Called_ReturnsTheCorrectValue()
         {
-            var board = new Board(this.player);
+            var player = new Player();
+            var board = new Board(player);
 
             var result = board.GetPlayerStrength();
 
@@ -47,7 +43,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void MakeAMove_Called_SetPropertyValue()
         {
-            var board = new Board(this.player);
+            var player = new Player();
+            var board = new Board(player);
             var position = 10;
             
             board.MakeAMove(position);
@@ -58,7 +55,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void MakeMultipleMoves_Called_SetPropertyValues()
         {
-            var board = new Board(this.player);
+            var player = new Player();
+            var board = new Board(player);
             var first = 10;
             var final = 12;
             

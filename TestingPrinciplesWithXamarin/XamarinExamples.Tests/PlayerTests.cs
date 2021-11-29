@@ -6,13 +6,6 @@ namespace XamarinExamples.Tests
 {
     public class PlayerTests
     {
-        private readonly Player player;
-        
-        public PlayerTests(Player player)
-        {
-            this.player = new Player(11);
-        }
-
         [Fact]
         public void Constructor_CalledWithNoParams_SetsCorrectDefaultValues()
         {
@@ -20,7 +13,7 @@ namespace XamarinExamples.Tests
 
             player2.Seniority.Should().Be(1);
             player2.First.Should().Be("First");
-            player2.Last.Should().Be("Last");
+            player2.Last.Should().Be("LAST");
         }
         
         [Fact]
@@ -30,13 +23,15 @@ namespace XamarinExamples.Tests
 
             player2.Seniority.Should().Be(10);
             player2.First.Should().Be("Joe");
-            player2.Last.Should().Be("Smith");
+            player2.Last.Should().Be("SMITH");
         }
         
         // Do not test this:
         [Fact]
         public void Seniority_Get_ReturnsValue()
         {
+            var player = new Player(11);
+            
             player.Seniority.Should().Be(11);
         }
         
@@ -44,6 +39,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void Seniority_Set_ReturnsValue()
         {
+            var player = new Player();
+            
             player.Seniority = 10;
 
             player.Seniority.Should().Be(10);
@@ -53,23 +50,27 @@ namespace XamarinExamples.Tests
         [Fact]
         public void FullName_FirstNameSupplied_ReturnsCorrectValue()
         {
-            var player2 = new Player(1, "Joe", "Smith");
+            var player = new Player(1, "Joe", "Smith");
 
-            player2.FullName.Should().Be("Joe Smith");
+            player.FullName.Should().Be("Joe SMITH");
         }
         
         [Fact]
         public void FullName_FirstNameNotSupplied_ReturnsCorrectValue()
         {
+            var player = new Player();
+            
             player.FullName.Should().Be("Full Name Not Set");
         }
         
         [Fact]
         public void Last_Called_SetsToCorrectValue()
         {
+            var player = new Player();
+            
             player.Last = "jones";
 
-            player.Last.Should().Be("Jones");
+            player.Last.Should().Be("JONES");
         }
     }
 }
