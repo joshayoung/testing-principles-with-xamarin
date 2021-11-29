@@ -1,8 +1,5 @@
 using System.ComponentModel;
-using System.Runtime.Intrinsics.Arm;
 using FluentAssertions;
-using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using XamarinExamples.Models;
 using Xunit;
 
@@ -28,7 +25,8 @@ namespace XamarinExamples.Tests
         
             dieMonitored.Subject.Roll();
         
-            dieMonitored.Should().Raise("PropertyChanged").WithArgs<PropertyChangedEventArgs>(args => args.PropertyName == "DieRolled");
+            dieMonitored.Should().Raise("PropertyChanged")
+                .WithArgs<PropertyChangedEventArgs>(args => args.PropertyName == "DieRolled");
         }
     }
 }

@@ -49,7 +49,7 @@ namespace XamarinExamples.Tests
             
             board.MakeAMove(position);
 
-            board.FirstPostion.Should().Be(position);
+            board.FirstPosition.Should().Be(position);
         }
         
         [Fact]
@@ -62,8 +62,8 @@ namespace XamarinExamples.Tests
             
             board.MakeMultipleMoves(first, final);
 
-            board.FirstPostion.Should().Be(first);
-            board.FinalPostion.Should().Be(final);
+            board.FirstPosition.Should().Be(first);
+            board.FinalPosition.Should().Be(final);
         }
     }
 }

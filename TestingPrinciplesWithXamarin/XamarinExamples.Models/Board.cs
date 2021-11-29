@@ -4,8 +4,8 @@ namespace XamarinExamples.Models
     {
         private readonly Player player;
 
-        public int FirstPostion;
-        public int FinalPostion;
+        public int FirstPosition;
+        public int FinalPosition;
         
         public Board(Player player)
         {
@@ -14,13 +14,13 @@ namespace XamarinExamples.Models
 
         public void MakeAMove(int location)
         {
-            this.FirstPostion = location;
+            this.FirstPosition = location;
         }
 
         public void MakeMultipleMoves(int firstLocation, int finalLocation)
         {
-            this.FirstPostion = firstLocation;
-            this.FinalPostion = finalLocation;
+            this.FirstPosition = firstLocation;
+            this.FinalPosition = finalLocation;
         }
         
         public int GetNumberOfMoves(int lives, int timeInPlay)

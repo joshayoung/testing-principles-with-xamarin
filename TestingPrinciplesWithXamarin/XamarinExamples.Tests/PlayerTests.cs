@@ -13,7 +13,6 @@ namespace XamarinExamples.Tests
 
             player2.Seniority.Should().Be(1);
             player2.First.Should().Be("First");
-            player2.Last.Should().Be("LAST");
         }
         
         [Fact]
@@ -63,6 +62,7 @@ namespace XamarinExamples.Tests
             player.FullName.Should().Be("Full Name Not Set");
         }
         
+        // Test custom set logic:
         [Fact]
         public void Last_Called_SetsToCorrectValue()
         {

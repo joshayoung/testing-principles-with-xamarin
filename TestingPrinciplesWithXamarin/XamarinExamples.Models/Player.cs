@@ -40,17 +40,17 @@ namespace XamarinExamples.Models
         
         public void IncreasePlayerLives()
         {
-            Console.WriteLine("Example");
+            // ...
         }
 
-        // This would be a much more complicated method, but simple for the sake of example
+        // Simple method, for the sake of example
         public int StrengthLevel()
         {
-            return this.DeriveStrenthLevel();
+            return this.DeriveStrengthLevel();
         }
 
-        // This would be a much more complicated method, but simple for the sake of example
-        private int DeriveStrenthLevel()
+        // Simple method, for the sake of example
+        private int DeriveStrengthLevel()
         {
             return 11;
         }

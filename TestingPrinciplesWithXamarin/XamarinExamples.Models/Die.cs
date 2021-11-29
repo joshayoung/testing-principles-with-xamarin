@@ -9,7 +9,8 @@ namespace XamarinExamples.Models
 
         public void Roll()
         {
-            //... other logic
+            // this method would perform logic followed by triggering a property change
+            // ...
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DieRolled"));
         }
 

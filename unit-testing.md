@@ -1,6 +1,6 @@
 ## Unit Testing in C#/Xamarin Projects
 
-### What We Should Test (general categories)
+### What We Should Test
 
 #### Scenario: Return Value
 * GIVEN: I have a method that returns a value.
