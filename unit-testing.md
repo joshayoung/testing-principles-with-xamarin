@@ -183,11 +183,11 @@
   [Fact]
   public void Constructor_CalledWithParams_SetsCorrectValues()
   {
-      var player2 = new Player(10, "Joe", "Smith");
+      var player = new Player(10, "Joe", "Smith");
 
-      player2.Seniority.Should().Be(10);
-      player2.First.Should().Be("Joe");
-      player2.Last.Should().Be("SMITH");
+      player.Seniority.Should().Be(10);
+      player.First.Should().Be("Joe");
+      player.Last.Should().Be("SMITH");
   }
 ```
 
@@ -212,11 +212,11 @@
     [Fact]
     public void Constructor_CalledWithNoParams_SetsCorrectDefaultValues()
     {
-        var player2 = new Player();
+        var player = new Player();
 
-        player2.Seniority.Should().Be(1);
-        player2.First.Should().Be("First");
-        player2.Last.Should().Be("LAST");
+        player.Seniority.Should().Be(1);
+        player.First.Should().Be("First");
+        player.Last.Should().Be("LAST");
     }
 ```
 
