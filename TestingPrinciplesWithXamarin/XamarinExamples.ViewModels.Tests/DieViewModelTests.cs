@@ -23,5 +23,16 @@ namespace XamarinExamples.ViewModels.Tests
                 .WithSender(dieViewModelMonitored.Subject)
                 .WithArgs<PropertyChangedEventArgs>(args => args.PropertyName == nameof(DieViewModel.Rolled));
         }
+        
+        [Fact]
+        public void Model_ValueChanges_ExpectVMValueChange()
+        {
+            var die = new Die();
+            var dieViewModel = new DieViewModel(die);
+
+            die.Rolled = true;
+
+            dieViewModel.Rolled.Should().Be(true);
+        }
     }
 }
