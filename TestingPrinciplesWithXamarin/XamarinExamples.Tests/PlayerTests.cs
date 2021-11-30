@@ -13,6 +13,7 @@ namespace XamarinExamples.Tests
 
             player.Seniority.Should().Be(1);
             player.First.Should().Be("First");
+            // TODO: Last name is capitalized (which deviates a bit from my constructor test example):
             player.Last.Should().Be("LAST");
         }
         
@@ -23,6 +24,7 @@ namespace XamarinExamples.Tests
 
             player.Seniority.Should().Be(10);
             player.First.Should().Be("Joe");
+            // TODO: Last name is capitalized (which deviates a bit from my constructor test example):
             player.Last.Should().Be("SMITH");
         }
         
@@ -52,6 +54,7 @@ namespace XamarinExamples.Tests
         {
             var player = new Player(1, "Joe", "Smith");
 
+            // TODO: Last name is capitalized (which deviates a bit from my full name test example):
             player.FullName.Should().Be("Joe SMITH");
         }
         

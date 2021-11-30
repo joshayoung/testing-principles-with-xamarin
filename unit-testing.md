@@ -125,7 +125,7 @@
   {
       var player = new Player(1, "Joe", "Smith");
 
-      player.FullName.Should().Be("Joe SMITH");
+      player.FullName.Should().Be("Joe Smith");
   }
 
   [Fact]
@@ -186,7 +186,7 @@
 
       player.Seniority.Should().Be(10);
       player.First.Should().Be("Joe");
-      player.Last.Should().Be("SMITH");
+      player.Last.Should().Be("Smith");
   }
 ```
 
