@@ -12,7 +12,7 @@ namespace XamarinExamples.ViewModels
             this.die = die;
             
             // Automatic properties change trigger for like-named properties in view model:
-            die.PropertyChanged += (sender, args) => this.PropertyChanged?.Invoke(this, args);
+            die.PropertyChanged += (_, args) => this.PropertyChanged?.Invoke(this, args);
         }
         
         public event PropertyChangedEventHandler? PropertyChanged;
