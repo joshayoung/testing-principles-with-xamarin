@@ -282,7 +282,7 @@ public void GetStrengthLevelAndAssign_Called_SetsStrength()
 #### Scenario: Automatic Get Properties
 * GIVEN: I have a property that uses C#'s automattic getter.
 * WHEN: I write my test for this property.
-* THEN: I should not write a test for this getter.
+* THEN: I should **not** write a test for this getter.
 
 ```csharp
   public class Player
@@ -304,7 +304,7 @@ public void GetStrengthLevelAndAssign_Called_SetsStrength()
 #### Scenario: Automatic Set Properties
 * GIVEN: I have a property that uses C#'s automattic setter.
 * WHEN: I write my test for my property.
-* THEN: I should not write a test for this setter.
+* THEN: I should **not** write a test for this setter.
 
 ```csharp
   public class Player
@@ -327,7 +327,7 @@ public void GetStrengthLevelAndAssign_Called_SetsStrength()
 
 #### Scenario: Called Method Is Private
 * GIVEN: That I have a private method.
-* THEN: I do not test it.
+* THEN: I do **not** test it.
 
 ```csharp
   public class Player {
