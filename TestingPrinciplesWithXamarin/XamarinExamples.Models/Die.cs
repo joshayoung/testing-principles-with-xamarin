@@ -14,6 +14,6 @@ namespace XamarinExamples.Models
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DieRolled"));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
     }
 }
