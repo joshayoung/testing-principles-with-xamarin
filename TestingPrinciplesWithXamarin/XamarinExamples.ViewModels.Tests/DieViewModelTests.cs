@@ -12,7 +12,7 @@ namespace XamarinExamples.ViewModels.Tests
         [Fact]
         public void Model_PropertyChanges_ExpectVMPropertyChange()
         {
-            var dieMock = Substitute.ForPartsOf<Die>();
+            var dieMock = Substitute.ForPartsOf<Die>(10);
             var dieViewModelMonitored = new DieViewModel(dieMock).Monitor();
 
             dieMock.Configure().PropertyChanged += 
@@ -27,7 +27,7 @@ namespace XamarinExamples.ViewModels.Tests
         [Fact]
         public void Model_ValueChanges_ExpectVMValueChange()
         {
-            var die = new Die();
+            var die = new Die(10);
             var dieViewModel = new DieViewModel(die);
 
             die.Rolled = true;
