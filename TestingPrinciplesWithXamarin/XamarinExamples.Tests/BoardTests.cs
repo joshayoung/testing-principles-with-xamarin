@@ -56,7 +56,8 @@ namespace XamarinExamples.Tests
         [Fact]
         public void GetPlayerStrength_Called_ReturnsTheCorrectValue()
         {
-            var player = new Player();
+            var player = Substitute.For<Player>(1, "first", "last");
+            player.StrengthLevel().Returns(11);
             var board = new Board(player);
 
             var result = board.GetPlayerStrength();

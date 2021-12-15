@@ -48,7 +48,7 @@ namespace XamarinExamples.Models
         }
 
         // Simple method, for the sake of example
-        public int StrengthLevel()
+        public virtual int StrengthLevel()
         {
             return this.DeriveStrengthLevel();
         }
