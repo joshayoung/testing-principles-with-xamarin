@@ -19,6 +19,30 @@ namespace XamarinExamples.Tests
         }
 
         [Fact]
+        public void LevelUp_CalledWithConstant_CallsCorrectMethodWithValue()
+        {
+            var player = Substitute.For<Player>(1, "first", "last");
+            var board = new Board(player);
+
+            board.LevelUp();
+
+            // Test with the constant:
+            player.Received().ApplyTokenFeatures(Arg.Is<string>(PlayerTokens.IntermediatePlayer));
+        }
+        
+        [Fact]
+        public void LevelUp_CalledWithRawString_CallsCorrectMethodWithValue()
+        {
+            var player = Substitute.For<Player>(1, "first", "last");
+            var board = new Board(player);
+
+            board.LevelUp();
+
+            // Test with the string:
+            player.Received().ApplyTokenFeatures(Arg.Is<string>("intermediate_player"));
+        }
+
+        [Fact]
         public void PowerBoost_Called_CallsCorrectMethod()
         {
             var player = Substitute.For<Player>(1, "first", "last");

@@ -8,6 +8,8 @@ namespace XamarinExamples.Models
         
         public int GameDuration { get; set; }
         
+        private string Level { get; set; }
+        
         public string First { get; set; }
 
         private string last;
@@ -68,6 +70,11 @@ namespace XamarinExamples.Models
         private int DeriveStrengthLevel()
         {
             return 11;
+        }
+
+        public void ApplyTokenFeatures(string token)
+        {
+            this.Level = token;
         }
     }
 }

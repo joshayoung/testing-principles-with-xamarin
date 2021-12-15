@@ -17,7 +17,12 @@ namespace XamarinExamples.Models
             this.FirstPosition = firstLocation;
             this.FinalPosition = finalLocation;
         }
-        
+
+        public void LevelUp()
+        {
+            this.player.ApplyTokenFeatures(PlayerTokens.IntermediatePlayer);
+        }
+
         public int GetNumberOfMoves(int lives, int timeInPlay)
         {
             return lives * timeInPlay;
