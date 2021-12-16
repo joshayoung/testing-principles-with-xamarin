@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinExamples.iOS", "Xama
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinExamples.Models", "XamarinExamples.Models\XamarinExamples.Models.csproj", "{39869374-E9EC-4709-84D9-00C907BAA116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinExamples.Tests", "XamarinExamples.Tests\XamarinExamples.Tests.csproj", "{C3FE20BF-CD16-4282-929B-A1C96019C33E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinExamples.Models.Tests", "XamarinExamples.Models.Tests\XamarinExamples.Models.Tests.csproj", "{C3FE20BF-CD16-4282-929B-A1C96019C33E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinExamples.ViewModels", "XamarinExamples.ViewModels\XamarinExamples.ViewModels.csproj", "{D19D498D-ACAA-483F-8B9E-E2A2A3FF8B35}"
 EndProject

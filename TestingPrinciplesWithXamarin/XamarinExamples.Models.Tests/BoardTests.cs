@@ -3,7 +3,7 @@ using NSubstitute;
 using XamarinExamples.Models;
 using Xunit;
 
-namespace XamarinExamples.Tests
+namespace XamarinExamples.Models.Tests
 {
     public class BoardTests
     {
