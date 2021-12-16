@@ -1,6 +1,5 @@
 using FluentAssertions;
 using NSubstitute;
-using XamarinExamples.Models;
 using Xunit;
 
 namespace XamarinExamples.Models.Tests
@@ -12,7 +11,7 @@ namespace XamarinExamples.Models.Tests
         {
             var player = new Player();
             var board = new Board(player);
-            
+
             var result = board.GetNumberOfMoves(2, 20);
 
             result.Should().Be(40);
@@ -29,7 +28,7 @@ namespace XamarinExamples.Models.Tests
             // Test with the constant:
             player.Received().ApplyTokenFeatures(Arg.Is<string>(PlayerTokens.IntermediatePlayer));
         }
-        
+
         [Fact]
         public void LevelUp_CalledWithRawString_CallsCorrectMethodWithValue()
         {
@@ -52,7 +51,7 @@ namespace XamarinExamples.Models.Tests
 
             player.Received().IncreasePlayerLives();
         }
-        
+
         [Fact]
         public void GetPlayerStrength_Called_ReturnsTheCorrectValue()
         {
@@ -64,7 +63,7 @@ namespace XamarinExamples.Models.Tests
 
             result.Should().Be(1100);
         }
-        
+
         [Fact]
         public void MakeMultipleMoves_Called_SetPropertyValues()
         {
@@ -72,11 +71,51 @@ namespace XamarinExamples.Models.Tests
             var board = new Board(player);
             var first = 10;
             var final = 12;
-            
+
             board.MakeMultipleMoves(first, final);
 
             board.FirstPosition.Should().Be(first);
             board.FinalPosition.Should().Be(final);
+        }
+
+        // Using the concretion
+        [Fact]
+        public void AssignAndSortCards_Called_AssignsDeck()
+        {
+            var player = new Player();
+            var board = new Board(player);
+            var deck = Substitute.For<Deck>(10, false, false);
+
+            board.SetDeck(deck);
+
+            board.Deck.Should().BeEquivalentTo(deck);
+        }
+
+
+        [Fact]
+        public void AssignAndSortCards_Called_SortsDeck()
+        {
+            var player = new Player();
+            var board = new Board(player);
+            var deck = Substitute.For<Deck>(10, false, false);
+
+            board.SetDeck(deck);
+
+            board.Deck.IsSorted().Should().BeTrue();
+        }
+        
+        
+        // Using the interface
+        [Fact]
+        public void AssignAndSortCards_CalledWithInterface_AssignsDeck()
+        {
+            var player = new Player();
+            var board = new Board(player);
+            var deck = Substitute.For<IDeck>();
+
+            board.SetDeck(deck);
+
+            board.Deck.Should().BeEquivalentTo(deck);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace XamarinExamples.Models
 
         public int FirstPosition;
         public int FinalPosition;
+        public IDeck Deck;
         
         public Board(Player player)
         {
@@ -31,6 +32,16 @@ namespace XamarinExamples.Models
         public void PowerBoost()
         {
             this.player.IncreasePlayerLives();
+        }
+
+        public void SetDeck(IDeck deck)
+        {
+            this.Deck = deck;
+        }
+
+        public void Sort()
+        {
+            this.Deck.Sort();
         }
 
         public int GetPlayerStrength()
