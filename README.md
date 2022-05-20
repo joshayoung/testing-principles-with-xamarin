@@ -57,7 +57,7 @@
 * AND: the method under test returns a value.
 * WHEN: I write my test for this method.
 * THEN: I do not assert that this method was called.
-* AND: I only assert only on return value of the method under test.
+* AND: I only assert on the return value of the method under test.
 
 ```csharp
   public int GetPlayerStrength()
